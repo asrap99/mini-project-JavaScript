@@ -1,0 +1,163 @@
+:root {
+    --term-bg: #0c0c0c;
+    --term-green: #00ff41;
+    --window-bg: #1e1e1e;
+    --term-yellow: #ffbd2e;
+}
+
+body {
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+    background-color: #000;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--term-green);
+}
+
+/* Efek garis retro (Scanlines) */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Bingkai Aplikasi Terminal */
+.terminal-window {
+    width: 100%;
+    max-width: 450px;
+    background-color: var(--term-bg);
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,255,65,0.15), 0 0 10px rgba(0,0,0,0.8);
+    overflow: hidden;
+    border: 1px solid #333;
+    position: relative;
+    z-index: 1;
+}
+
+.terminal-header {
+    background-color: var(--window-bg);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.buttons { display: flex; gap: 8px; cursor: pointer; }
+.btn { width: 12px; height: 12px; border-radius: 50%; }
+.btn-close { background-color: #ff5f56; transition: transform 0.2s; }
+.btn-close:hover { transform: scale(1.2); }
+.btn-min { background-color: var(--term-yellow); }
+.btn-max { background-color: #27c93f; }
+
+.title-bar {
+    flex-grow: 1;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.85rem;
+    margin-right: 48px;
+}
+
+.container {
+    text-align: center;
+    padding: 30px;
+}
+
+h1 {
+    font-size: 1.3em;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: left;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 10px;
+}
+
+.color-picker {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Desain Input Warna yang Lebih Keren */
+#colorInput {
+    width: 120px;
+    height: 60px;
+    border: 2px solid var(--term-green);
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 3px;
+    transition: 0.2s;
+}
+
+#colorInput:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+}
+
+#colorInput::-webkit-color-swatch-wrapper { padding: 0; }
+#colorInput::-webkit-color-swatch { border: none; border-radius: 4px; }
+
+/* Kotak Output Kode Hex */
+.output-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: rgba(0, 255, 65, 0.05);
+    padding: 12px 20px;
+    border: 1px solid var(--term-green);
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+p {
+    font-size: 1.1em;
+    color: #fff;
+    margin: 0;
+}
+
+#colorCode {
+    color: var(--term-yellow);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#copyBtn {
+    background: transparent;
+    border: none;
+    color: var(--term-green);
+    font-family: inherit;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+#copyBtn:hover {
+    color: #fff;
+    text-shadow: 0 0 5px var(--term-green);
+}
+
+/* Kotak Penampil Warna */
+.color-display {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    border: 2px solid #333;
+    transition: background-color 0.1s ease, box-shadow 0.3s ease;
+}
+
+.header-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #333; margin-bottom: 20px; padding-bottom: 10px; }
+.header-row h1 { margin: 0; border: none; padding: 0; }
+.back-btn { font-size: 0.8rem; color: var(--term-yellow); text-decoration: none; border: 1px solid var(--term-yellow); padding: 4px 8px; border-radius: 4px; transition: 0.2s; }
+.back-btn:hover { background-color: var(--term-yellow); color: #000; }

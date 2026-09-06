@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer - JS Terminal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="terminal-window" id="terminalWindow">
+        <div class="terminal-header">
+            <div class="buttons">
+                <div class="btn btn-close" title="Kembali ke Menu" onclick="window.location.href='../index.html'"></div>
+                <div class="btn btn-min"></div>
+                <div class="btn btn-max"></div>
+            </div>
+            <div class="title-bar">asyraf@intel-core: ~/projects/timer</div>
+        </div>
+
+        <div class="timer-container">
+            <div class="header-row">
+                <h1>> ./start_timer.sh</h1>
+                <a href="../index.html" class="back-btn">[ ← KEMBALI ]</a>
+            </div>
+
+            <div id="countdown" class="countdown">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <span class="label">DAYS</span>
+                </div>
+                <span class="colon-display">:</span>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <span class="label">HRS</span>
+                </div>
+                <span class="colon-display">:</span>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <span class="label">MIN</span>
+                </div>
+                <span class="colon-display">:</span>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <span class="label">SEC</span>
+                </div>
+            </div>
+
+            <div class="input-wrapper">
+                <div class="input-container">
+                    <input type="number" id="inputHours" min="0" placeholder="HH">
+                    <span class="colon-input">:</span>
+                    <input type="number" id="inputMinutes" min="0" max="59" placeholder="MM">
+                    <span class="colon-input">:</span>
+                    <input type="number" id="inputSeconds" min="0" max="59" placeholder="SS">
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="startButton">[ START ]</button>
+                    <button id="resetButton" class="btn-reset">[ RESET ]</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker - JS Terminal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="buttons">
+                <div class="btn btn-close" title="Kembali ke Menu" onclick="window.location.href='../index.html'"></div>
+                <div class="btn btn-min"></div>
+                <div class="btn btn-max"></div>
+            </div>
+            <div class="title-bar">asyraf@intel-core: ~/projects/color-picker</div>
+        </div>
+        
+        <div class="container">
+            <div class="header-row">
+                <h1>> Color_Picker.exe</h1>
+                <a href="../index.html" class="back-btn">[ ← KEMBALI ]</a>
+            </div>
+            
+            <div class="color-picker">
+                <input type="color" name="" id="colorInput" value="#00ff41">
+                
+                <div class="output-box">
+                    <p>HEX Code: <span id="colorCode">#00FF41</span></p>
+                    <button id="copyBtn">[ COPY ]</button>
+                </div>
+            </div>
+            
+            <div id="colorDisplay" class="color-display" style="background-color: #00ff41;"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

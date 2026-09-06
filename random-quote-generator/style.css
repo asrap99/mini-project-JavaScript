@@ -1,0 +1,146 @@
+:root {
+    --term-bg: #0c0c0c;
+    --term-green: #00ff41;
+    --window-bg: #1e1e1e;
+    --term-yellow: #ffbd2e;
+}
+
+body {
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+    background-color: #000;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--term-green);
+}
+
+/* Efek garis retro (Scanlines) */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Bingkai Aplikasi Terminal */
+.terminal-window {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--term-bg);
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,255,65,0.15), 0 0 10px rgba(0,0,0,0.8);
+    overflow: hidden;
+    border: 1px solid #333;
+    position: relative;
+    z-index: 1;
+}
+
+.terminal-header {
+    background-color: var(--window-bg);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.buttons { display: flex; gap: 8px; cursor: pointer; }
+.btn { width: 12px; height: 12px; border-radius: 50%; }
+.btn-close { background-color: #ff5f56; transition: transform 0.2s; }
+.btn-close:hover { transform: scale(1.2); }
+.btn-min { background-color: var(--term-yellow); }
+.btn-max { background-color: #27c93f; }
+
+.title-bar {
+    flex-grow: 1;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.85rem;
+    margin-right: 48px;
+}
+
+.quote-container {
+    padding: 30px;
+}
+
+h1 {
+    font-size: 1.3em;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 10px;
+}
+
+/* Kotak Teks Quote */
+.quote-box {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: rgba(0, 255, 65, 0.05);
+    border-left: 4px solid var(--term-green);
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#quote {
+    font-size: 1.2em;
+    color: var(--term-green);
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.4);
+}
+
+#author {
+    font-size: 1em;
+    color: var(--term-yellow);
+    font-style: italic;
+    margin: 0;
+    text-align: right;
+}
+
+/* Tombol Terminal */
+button {
+    background-color: transparent;
+    color: var(--term-green);
+    padding: 12px 20px;
+    border: 1px solid var(--term-green);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: inherit;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: var(--term-green);
+    color: #000;
+}
+
+/* Tambahkan ini di baris paling bawah style.css Anda */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background-color: var(--term-green);
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+.header-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #333; margin-bottom: 20px; padding-bottom: 10px; }
+.header-row h1 { margin: 0; border: none; padding: 0; }
+.back-btn { font-size: 0.8rem; color: var(--term-yellow); text-decoration: none; border: 1px solid var(--term-yellow); padding: 4px 8px; border-radius: 4px; transition: 0.2s; }
+.back-btn:hover { background-color: var(--term-yellow); color: #000; }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator - JS Terminal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="buttons">
+                <div class="btn btn-close" title="Kembali ke Menu" onclick="window.location.href='../index.html'"></div>
+                <div class="btn btn-min"></div>
+                <div class="btn btn-max"></div>
+            </div>
+            <div class="title-bar">asyraf@intel-core: ~/projects/quote-gen</div>
+        </div>
+
+        <div class="quote-container">
+            <div class="header-row">
+                <h1>> ./random_quote.sh</h1>
+                <a href="../index.html" class="back-btn">[ ← KEMBALI ]</a>
+            </div>
+            
+            <div class="quote-box">
+                <p><span id="quote"></span><span class="cursor" id="cursor"></span></p>
+                <p id="author"></p>
+            </div>
+            
+            <button id="new-quote">[ FETCH NEW QUOTE ]</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

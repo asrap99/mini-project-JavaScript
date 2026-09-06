@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal | JS Projects</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="buttons">
+                <div class="btn btn-close"></div>
+                <div class="btn btn-min"></div>
+                <div class="btn btn-max"></div>
+            </div>
+            <div class="title-bar">asyraf@intel-core: ~/projects</div>
+        </div>
+
+        <div class="terminal-body">
+            <div class="boot-log">
+                <div>[ OK ] Booting JS-OS...</div>
+                <div>[ OK ] Initializing Intel Core processor...</div>
+                <div>[ OK ] Starting background services: espresso-daemon, bocil-sys</div>
+                <div>System ready. Workspace loaded.</div>
+            </div>
+
+            <div class="typing-container">
+                <span style="color: #ff5f56; font-weight: bold;">></span> <span id="top-typing-text"></span><span class="cursor" id="top-cursor"></span>
+            </div>
+
+            <div id="main-content" style="display: none;">
+                <div class="prompt-line">
+                    <span class="user">asyraf@intel-core</span>:<span class="path">~/projects</span>$ <span class="command">./tampilkan_menu</span>
+                </div>
+
+                <div class="project-list">
+                    <a href="calculator/calculator.html" class="project-btn">
+                        <div class="btn-icon">🧮</div>
+                        <div class="btn-text">
+                            <span class="btn-title">Aplikasi Kalkulator</span>
+                            <span class="btn-desc">Hitung angka dan matematika dasar</span>
+                        </div>
+                        <div class="btn-action">[ BUKA ]</div>
+                    </a>
+
+                    <a href="color-picker-app/color-picker.html" class="project-btn">
+                        <div class="btn-icon">🎨</div>
+                        <div class="btn-text">
+                            <span class="btn-title">Pemilih Warna (Color Picker)</span>
+                            <span class="btn-desc">Cari dan salin kode warna untuk desain</span>
+                        </div>
+                        <div class="btn-action">[ BUKA ]</div>
+                    </a>
+
+                    <a href="Coutdown-Timer/countdown-timer.html" class="project-btn">
+                        <div class="btn-icon">⏱️</div>
+                        <div class="btn-text">
+                            <span class="btn-title">Penghitung Mundur (Timer)</span>
+                            <span class="btn-desc">Atur waktu mundur untuk target Anda</span>
+                        </div>
+                        <div class="btn-action">[ BUKA ]</div>
+                    </a>
+
+                    <a href="random-quote-generator/random-quote.html" class="project-btn">
+                        <div class="btn-icon">💬</div>
+                        <div class="btn-text">
+                            <span class="btn-title">Kutipan Acak (Quotes)</span>
+                            <span class="btn-desc">Dapatkan kata-kata motivasi hari ini</span>
+                        </div>
+                        <div class="btn-action">[ BUKA ]</div>
+                    </a>
+                </div>
+
+                <div class="prompt-line" style="margin-top: 25px;">
+                    <span class="user">asyraf@intel-core</span>:<span class="path">~/projects</span>$ <span id="bottom-command" class="command"></span><span class="cursor" id="bottom-cursor"></span>
+                </div>
+                
+                <div id="live-server" class="server-logs" style="display: none;">
+                    <div class="log-info">> [nodemon] starting `node server.js`</div>
+                    <div class="log-success">> 🚀 Server successfully running at http://localhost:3000</div>
+                    <div class="log-watch">> <span id="spinner">⠋</span> Watching for file changes...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js">
+      
+    </script>
+
+</body>
+</html>

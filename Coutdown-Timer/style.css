@@ -1,0 +1,189 @@
+:root {
+    --term-bg: #0c0c0c;
+    --term-green: #00ff41;
+    --window-bg: #1e1e1e;
+    --term-yellow: #ffbd2e;
+    --term-red: #ff5f56;
+}
+
+body {
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+    background-color: #000;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--term-green);
+    transition: background-color 0.1s;
+}
+
+/* Efek Layar CRT */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Bingkai Terminal */
+.terminal-window {
+    width: 100%;
+    max-width: 550px;
+    background-color: var(--term-bg);
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,255,65,0.15), 0 0 10px rgba(0,0,0,0.8);
+    overflow: hidden;
+    border: 1px solid #333;
+    position: relative;
+    z-index: 1;
+    transition: all 0.1s;
+}
+
+/* Kelas yang ditambahkan via JS saat Alarm menyala */
+.alarm-active {
+    background-color: #3a0000;
+    box-shadow: 0 0 50px var(--term-red);
+    border-color: var(--term-red);
+}
+.alarm-active .time-box span { color: var(--term-red); text-shadow: 0 0 10px var(--term-red); }
+
+.terminal-header {
+    background-color: var(--window-bg);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.buttons { display: flex; gap: 8px; cursor: pointer; }
+.btn { width: 12px; height: 12px; border-radius: 50%; }
+.btn-close { background-color: #ff5f56; transition: transform 0.2s; }
+.btn-close:hover { transform: scale(1.2); }
+.btn-min { background-color: var(--term-yellow); }
+.btn-max { background-color: #27c93f; }
+
+.title-bar {
+    flex-grow: 1;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.85rem;
+    margin-right: 48px;
+}
+
+.timer-container {
+    padding: 30px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.3em;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: left;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 10px;
+}
+
+/* Tampilan Angka Digital */
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    background-color: rgba(0, 255, 65, 0.05);
+    padding: 20px;
+    border: 1px solid var(--term-green);
+    border-radius: 8px;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+}
+
+.time-box span {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--term-green);
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
+}
+
+.label {
+    font-size: 0.75em !important;
+    color: var(--term-yellow) !important;
+    margin-top: 5px;
+    text-shadow: none !important;
+}
+
+.colon-display {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Input Area */
+.input-wrapper { display: flex; flex-direction: column; gap: 20px; }
+.input-container { display: flex; justify-content: center; align-items: center; gap: 10px; }
+
+input {
+    background-color: transparent;
+    color: #fff;
+    padding: 10px;
+    font-size: 1.2em;
+    border: 1px solid var(--term-green);
+    border-radius: 5px;
+    width: 70px;
+    text-align: center;
+    font-family: inherit;
+}
+input:focus { outline: none; box-shadow: 0 0 10px rgba(0, 255, 65, 0.3); }
+.colon-input { font-size: 1.5em; font-weight: bold; }
+
+/* ... (kode CSS atas lainnya tetap sama) ... */
+
+/* Action Buttons */
+.action-buttons { display: flex; justify-content: center; gap: 15px; }
+
+button {
+    background-color: transparent;
+    color: var(--term-green);
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border: 1px solid var(--term-green);
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+    /* PERBAIKAN DI SINI */
+    min-width: 140px; 
+    white-space: nowrap; 
+}
+
+button:hover {
+    background-color: var(--term-green);
+    color: #000;
+}
+
+.btn-reset { color: var(--term-red); border-color: var(--term-red); }
+.btn-reset:hover { background-color: var(--term-red); color: #fff; }
+
+.header-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #333; margin-bottom: 20px; padding-bottom: 10px; }
+.header-row h1 { margin: 0; border: none; padding: 0; }
+.back-btn { font-size: 0.8rem; color: var(--term-yellow); text-decoration: none; border: 1px solid var(--term-yellow); padding: 4px 8px; border-radius: 4px; transition: 0.2s; }
+.back-btn:hover { background-color: var(--term-yellow); color: #000; }

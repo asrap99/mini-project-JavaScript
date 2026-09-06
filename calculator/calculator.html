@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator App - JS Terminal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="buttons">
+                <div class="btn btn-close" title="Kembali ke Menu" onclick="window.location.href='../index.html'"></div>
+                <div class="btn btn-min"></div>
+                <div class="btn btn-max"></div>
+            </div>
+            <div class="title-bar">asyraf@intel-core: ~/projects/calculator</div>
+        </div>
+
+        <div class="calculator">
+            <div class="header-row">
+                <h1>> ./calc.sh</h1>
+                <a href="../index.html" class="back-btn">[ ← KEMBALI ]</a>
+            </div>
+            
+            <div class="calculator-screen">
+                <div class="calculator-display">
+                    <span id="displayText">0</span><span class="cursor"></span>
+                </div>
+            </div>
+            
+            <div class="calculator-keys">
+                <button class="unary" value="%">%</button>
+                <button class="unary" value="√">√</button>
+                <button class="operator" value="/">&divide;</button>
+                <button class="operator" value="*">&times;</button>
+                
+                <button value="7">7</button>
+                <button value="8">8</button>
+                <button value="9">9</button>
+                <button class="operator" value="-">-</button>
+                 
+                <button value="4">4</button>
+                <button value="5">5</button>
+                <button value="6">6</button>
+                <button class="operator" value="+">+</button>
+                
+                <button value="3">3</button>
+                <button value="2">2</button>
+                <button value="1">1</button>
+                <button class="equal-sign" value="=">=</button>
+    
+                <button class="zero" value="0">0</button>
+                <button class="decimal" value=".">.</button>
+                <button class="all-clear" value="AC">AC</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
